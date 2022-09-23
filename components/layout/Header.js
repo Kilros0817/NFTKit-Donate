@@ -27,7 +27,7 @@ export default function Header({ color = false, ...props }) {
               Router.push("/");
             }}
           >
-            Donate test
+            Donate
           </div>
         </Grid>
 
@@ -35,7 +35,9 @@ export default function Header({ color = false, ...props }) {
           item
           lg={3}
           md={3}
-          className="flex justify-center"
+          sm={0}
+          xs={0}
+          // className="flex justify-center"
           sx={{ display: { xs: "none", md: "block" } }}
         >
           <div className="flex flex-row items-center space-x-4">
@@ -54,11 +56,13 @@ export default function Header({ color = false, ...props }) {
           item
           lg={3}
           md={3}
-          className="flex justify-center"
+          sm={0}
+          xs={0}
+          // className="flex justify-center"
           sx={{ display: { xs: "none", md: "block" } }}
         >
           <div className="flex flex-row items-center space-x-4">
-            <img src="/images/locationIcon.png"></img>
+            <img src="/images/LocationIcon.png"></img>
             <div className="flex flex-col">
               <div className="text-black text-lg font-bold">New York</div>
               <div className="text-base text-black text-opacity-70">
