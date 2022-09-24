@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import { chainId, useAccount, useNetwork } from "wagmi";
+import {
+  usePrepareSendTransaction,
+  useSendTransaction,
+  useWaitForTransaction,
+} from "wagmi";
+
+import { utils } from "ethers";
+
+import { env } from "../../constant";
 
 export default function Main() {
+  const [amount, setAmount] = useState("0.1");
+
+  const { config } = usePrepareSendTransaction({
+    request: {
+      to: env.contractAddress,
+      value: utils.parseEther(amount),
+    },
+  });
+  const { data, sendTransaction } = useSendTransaction(config);
+
+  const { isLoading, isSuccess } = useWaitForTransaction({
+    hash: data?.hash,
+  });
+
   return (
     <>
       <div className="bg-[url('/images/back.jpg')] bg-cover h-[100vh] md:h-[90vh]">
         <div className="absolute top-30 left-30 w-full md:w-1/2 px-4 py-20 md:p-20">
-          <div className="text-white text-5xl pb-8 pt-20 font-bold">
+          <div className="text-white  text-4xl sm:text-5xl pb-8 pt-20 font-bold">
             Donate to Humanity
           </div>
-          <div className="text-3xl text-white py-4">
+          <div className="text-2xl sm:text-3xl text-white py-4">
             With Care About Our Environment <br />
             Please support 'Humanity' and donate your crypto dust here, which
             will be evenly distributed between The Refugee Council
@@ -18,13 +42,26 @@ export default function Main() {
               <input
                 placeholder="Enter amount"
                 className="bg-transparent focus-visible:outline-none"
+                onChange={e => setAmount(e.target.value)}
               ></input>
             </div>
             <div className="py-4">
-              <div className="cursor-pointer  rounded-md bg-green-500 py-2 text-white text-center text-lg font-bold">
-                DONATE
-              </div>
+              <button
+                disabled={isLoading || !sendTransaction || !amount}
+                className="cursor-pointer  rounded-md bg-green-500 py-2 text-white text-center text-lg font-bold"
+                onClick={sendTransaction?.()}
+              >
+                {isLoading ? "Sending..." : "Donate"}
+              </button>
             </div>
+            {isSuccess && (
+              <div>
+                Successfully sent {amount} ether to {config.contractAddress}
+                <div>
+                  <a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

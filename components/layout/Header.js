@@ -1,6 +1,7 @@
-import { Grid, Menu, MenuItem } from "@mui/material";
+import { Grid } from "@mui/material";
 import React, { useState } from "react";
 
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Router from "next/router";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -13,6 +14,7 @@ export default function Header({ color = false, ...props }) {
     { to: "/", label: "home" },
     { to: "/", label: "contact us" },
   ];
+
   return (
     <div
       className={`fixed w-full ${
@@ -40,7 +42,7 @@ export default function Header({ color = false, ...props }) {
           // className="flex justify-center"
           sx={{ display: { xs: "none", md: "block" } }}
         >
-          <div className="flex flex-row items-center space-x-4">
+          <div className="m-auto w-fit flex flex-row items-center space-x-4">
             <img src="/images/phoneIcon.png"></img>
             <div className="flex flex-col">
               <div className="text-black text-lg font-bold">
@@ -61,7 +63,7 @@ export default function Header({ color = false, ...props }) {
           // className="flex justify-center"
           sx={{ display: { xs: "none", md: "block" } }}
         >
-          <div className="flex flex-row items-center space-x-4">
+          <div className="m-auto w-fit flex flex-row items-center space-x-4">
             <img src="/images/LocationIcon.png"></img>
             <div className="flex flex-col">
               <div className="text-black text-lg font-bold">New York</div>
@@ -80,14 +82,15 @@ export default function Header({ color = false, ...props }) {
           // sx={{ display: { xs: "none", md: "block" } }}
         >
           <div className="flex justify-end">
-            <button
+            <ConnectButton chainStatus="none" showBalance={true} />
+            {/* <button
               className="rounded-3xl border-2 border-green-500 text-green-500 bg-green-200 py-2 px-4"
               onClick={() => {
                 Router.push("/");
               }}
             >
               Connect Wallet
-            </button>
+            </button> */}
           </div>
         </Grid>
         <Grid

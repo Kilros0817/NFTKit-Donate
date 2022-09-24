@@ -18,8 +18,10 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.6",
     "@mui/styled-engine-sc": "^5.8.0",
+    "@rainbow-me/rainbowkit": "^0.6.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
+    "ethers": "^5.7.1",
     "express": "^4.18.1",
     "font-awesome": "^4.7.0",
     "i": "^0.3.7",
@@ -31,6 +33,7 @@
     "react-dom": "18.1.0",
     "react-hotjar": "^5.0.0",
     "react-icons": "^4.3.1",
+    "react-redux": "^8.0.4",
     "react-search-box": "^2.2.1",
     "react-slick": "^0.29.0",
     "recharts": "^2.1.10",
@@ -38,7 +41,9 @@
     "sass": "^1.52.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
-    "tw-elements": "^1.0.0-alpha12"
+    "tw-elements": "^1.0.0-alpha12",
+    "wagmi": "^0.6.7",
+    "web3": "^1.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
