@@ -11,23 +11,23 @@ import { utils } from "ethers";
 import { env } from "../../constant";
 
 export default function Main() {
-  const [amount, setAmount] = useState("0.1");
+  // const [amount, setAmount] = useState("0.1");
 
-  const { config } = usePrepareSendTransaction({
-    request: {
-      to: env.contractAddress,
-      value: utils.parseEther(amount),
-    },
-  });
-  const { data, sendTransaction } = useSendTransaction(config);
+  // const { config } = usePrepareSendTransaction({
+  //   request: {
+  //     to: env.contractAddress,
+  //     value: utils.parseEther(amount),
+  //   },
+  // });
+  // const { data, sendTransaction } = useSendTransaction(config);
 
-  const { isLoading, isSuccess } = useWaitForTransaction({
-    hash: data?.hash,
-  });
+  // const { isLoading, isSuccess } = useWaitForTransaction({
+  //   hash: data?.hash,
+  // });
 
   return (
     <>
-      <div className="bg-[url('/images/back.jpg')] bg-cover h-[100vh] md:h-[90vh]">
+      {/* <div className="bg-[url('/images/back.jpg')] bg-cover h-[100vh] md:h-[90vh]">
         <div className="absolute top-30 left-30 w-full md:w-1/2 px-4 py-20 md:p-20">
           <div className="text-white  text-4xl sm:text-5xl pb-8 pt-20 font-bold">
             Donate to Humanity
@@ -64,7 +64,7 @@ export default function Main() {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  important: true,
+  // important: true,
   darkMode: ['class', '[data-mode="dark"]'],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -40,15 +40,6 @@ module.exports = {
         // logo: "url('/src/assets/logo/logo_360.png')",
         background: "url('/src/assets/images/background.svg')",
         container: "url('/src/assets/images/container.svg')",
-        inves_header_background:
-          "linear-gradient(to bottom, #000411, #0d3663, #000411)",
-        inves_body_background:
-          "linear-gradient(to right, #000411, #0d3663, #000411)",
-        inves_nav_background: "linear-gradient(to bottom, #0d3663, #000411)",
-        lizard_box_background:
-          "linear-gradient(to right, #000411, #0d3663, #000411)",
-        button_background: "linear-gradient(to bottom, #000411, #0d3663)",
-        reward_background: "linear-gradient(to right, #0d3663, #000411)",
       },
       colors: {
         primary: "#dbfff1",
@@ -68,10 +59,6 @@ module.exports = {
       fontSize: {
         tit: "42px",
         baseft: "16px",
-      },
-      backgroundImage: {
-        // logo: "url('/src/assets/logo/logo_360.png')",
-        background: "url('/public/images/HistoryImage3.svg')",
       },
     },
   },

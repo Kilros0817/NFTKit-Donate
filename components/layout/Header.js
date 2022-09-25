@@ -1,7 +1,7 @@
-import { Grid } from "@mui/material";
+import { Grid, Menu, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import {ConnectButton} from '@rainbow-me/rainbowkit';
 import Router from "next/router";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -14,7 +14,7 @@ export default function Header({ color = false, ...props }) {
     { to: "/", label: "home" },
     { to: "/", label: "contact us" },
   ];
-
+  
   return (
     <div
       className={`fixed w-full ${
@@ -82,7 +82,7 @@ export default function Header({ color = false, ...props }) {
           // sx={{ display: { xs: "none", md: "block" } }}
         >
           <div className="flex justify-end">
-            <ConnectButton chainStatus="none" showBalance={true} />
+            <ConnectButton />
             {/* <button
               className="rounded-3xl border-2 border-green-500 text-green-500 bg-green-200 py-2 px-4"
               onClick={() => {

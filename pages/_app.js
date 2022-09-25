@@ -1,10 +1,11 @@
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import "../styles/globals.scss";
 import '@rainbow-me/rainbowkit/styles.css';
+
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 
-import "../styles/globals.scss";
 import React from "react";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { env } from "../constant";
