@@ -12,7 +12,7 @@ import { env } from "../constant";
 
 // connect the wallet to chain
 const { chains, provider } = configureChains(
-  [chain.rinkeby],
+  [chain.polygonMumbai],
   [jsonRpcProvider({ rpc: () => ({ http: env.RPC }) }), publicProvider()]
 );
 
