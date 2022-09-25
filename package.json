@@ -42,6 +42,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
     "tw-elements": "^1.0.0-alpha12",
+    "use-debounce": "^8.0.4",
     "wagmi": "^0.6.7",
     "web3": "^1.8.0"
   },

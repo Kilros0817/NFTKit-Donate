@@ -39,7 +39,6 @@ export default function Header({ color = false, ...props }) {
           md={3}
           sm={0}
           xs={0}
-          // className="flex justify-center"
           sx={{ display: { xs: "none", md: "block" } }}
         >
           <div className="m-auto w-fit flex flex-row items-center space-x-4">
@@ -60,7 +59,6 @@ export default function Header({ color = false, ...props }) {
           md={3}
           sm={0}
           xs={0}
-          // className="flex justify-center"
           sx={{ display: { xs: "none", md: "block" } }}
         >
           <div className="m-auto w-fit flex flex-row items-center space-x-4">
@@ -79,18 +77,9 @@ export default function Header({ color = false, ...props }) {
           md={3}
           sm={6}
           xs={6}
-          // sx={{ display: { xs: "none", md: "block" } }}
         >
           <div className="flex justify-end">
             <ConnectButton />
-            {/* <button
-              className="rounded-3xl border-2 border-green-500 text-green-500 bg-green-200 py-2 px-4"
-              onClick={() => {
-                Router.push("/");
-              }}
-            >
-              Connect Wallet
-            </button> */}
           </div>
         </Grid>
         <Grid

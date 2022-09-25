@@ -10,8 +10,8 @@ export default function Footer({ ...props }) {
             <div className="text-black text-2xl font-bold">Donate Test</div>
           </div>
           <div className="text-xl text-[#353535] text-center md:text-left break-words">
-            Lorem ipsum makrov task vnade tasonde. Hemiskade. Lorem ipsum makrov
-            task vnade tasonde. Hemiskade.
+            I am very happy with the makrov task vnade tasonde. Hemiskade I am
+            very happy with the makrov task vnade tasonde. Hemiskade
           </div>
         </div>
         <div className="w-full md:w-2/3 flex flex-col-reverse md:flex-row">
