@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDebounce } from "use-debounce";
-import { chainId, useAccount, useNetwork } from "wagmi";
+import { useAccount, useNetwork } from "wagmi";
 import {
   usePrepareSendTransaction,
   useSendTransaction,
   useWaitForTransaction,
 } from "wagmi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { utils } from "ethers";
 
@@ -15,7 +17,7 @@ export default function Main() {
   const [amount, setAmount] = useState("");
   const [debouncedValue] = useDebounce(amount, 500);
 
-  const { isConnected } = useAccount();
+  const {chain} = useNetwork();
   const { config } = usePrepareSendTransaction({
     request: {
       to: env.contractAddress,
@@ -27,7 +29,19 @@ export default function Main() {
   const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   });
-
+  const CountDisplay = () => {
+    return (
+      <div className=" text-xl text-white p-4">
+        Successfully sent {amount} eth!
+        <div className="underline">
+          <a target="_blank" href={`https://mumbai.polygonscan.com//tx/${data?.hash}`}>Polygonscan</a>
+        </div>
+      </div>
+    );
+  };
+  const displayToast = () => {
+    toast.info(<CountDisplay />);
+  };
   return (
     <>
       <div className="bg-[url('/images/back.jpg')] bg-cover h-[100vh] md:h-[90vh]">
@@ -50,8 +64,8 @@ export default function Main() {
             </div>
             <div className="py-4">
               <button
-                disabled={isLoading || !sendTransaction || !amount}
-                className="cursor-pointer  rounded-md bg-green-500 py-2 px-5 text-white text-center text-lg font-bold"
+                disabled={isLoading || !sendTransaction || !amount || !chain }
+                className="cursor-pointer  rounded-md bg-green-500 py-2 px-5 text-white text-center text-lg font-bold disabled:bg-black disabled:bg-opacity-75"
                 onClick={(e) => {
                   e.preventDefault();
                   sendTransaction?.();
@@ -60,19 +74,22 @@ export default function Main() {
                 {isLoading ? "Sending..." : "Donate"}
               </button>
             </div>
-            {isSuccess && (
-              <div>
-                Successfully sent {amount} ether to {config.contractAddress}
-                <div>
-                  <a href={`https://etherscan.io/tx/${data?.hash}`}>
-                    Etherscan
-                  </a>
-                </div>
-              </div>
-            )}
+            {isSuccess && displayToast()}
           </div>
         </div>
       </div>
+      <ToastContainer
+        draggable={false}
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }

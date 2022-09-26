@@ -36,6 +36,7 @@
     "react-redux": "^8.0.4",
     "react-search-box": "^2.2.1",
     "react-slick": "^0.29.0",
+    "react-toastify": "^9.0.8",
     "recharts": "^2.1.10",
     "rsuite": "^5.16.1",
     "sass": "^1.52.1",
